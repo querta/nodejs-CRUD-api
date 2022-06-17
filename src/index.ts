@@ -4,6 +4,7 @@ import 'dotenv/config';
 import userDB from './UsersDBclass';
 import processGet from './processGet';
 import processPost from './processPost';
+import * as err from './errors';
 // import User from './types';
 
 // const routing = {
@@ -24,9 +25,7 @@ const reqProcess = async (req: http.IncomingMessage, res: http.ServerResponse) =
             // res.end();
             break;
         default:
-            res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.write('Invalid request method. Allowed: GET, POST, PUT, DELETE');
-            res.end();
+            err.method();
     }
     res.end();
 };
@@ -35,8 +34,7 @@ const server = http.createServer(async (req, res) => {
     try {
         await reqProcess(req, res);
     } catch (error: any) {
-        res.writeHead(400, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(error.message));
+        err.Handler(error, res);
     }
     // if (req.url!.match(/\/api\/users\/\w+/)) {
     //     console.log('1');
@@ -69,5 +67,3 @@ const server = http.createServer(async (req, res) => {
 });
 const PORT = process.env.SERVER_PORT || 4000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-// const myTest: (x: number) => number = (x) => x
-// myTest(5), return number

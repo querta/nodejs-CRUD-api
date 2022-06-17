@@ -12,14 +12,14 @@ class UsersDB {
         return this.users;
     }
 
-    async createUser({ name, age, hobbies = [] }: ICandidate) {
+    async createUser({ name, age, hobbies = [] }: ICandidate): Promise<IUser> {
         const newUser: IUser = {
             id: uuid(),
             name,
             age,
             hobbies,
         };
-        this.users.push(newUser);
+        return this.users[this.users.push(newUser) - 1];
     }
 
     async getUserById(id: string): Promise<IUser> {

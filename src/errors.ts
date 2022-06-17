@@ -22,18 +22,15 @@ export const id = () => {
     throw new HttpError('User id is invalid', 400);
 };
 
-export const method = () => {
-    throw new HttpError('Invalid request method. Allowed: GET, POST, PUT, DELETE', 400);
-};
-
 export const body = () => {
     throw new HttpError('Username and age are required', 400);
 };
 
+export const method = () => {
+    throw new HttpError('Invalid request method. Allowed: GET, POST, PUT, DELETE', 400);
+};
+
 export const Handler = (error: any, res: http.ServerResponse) => {
-    // if (error instanceof HttpError) {
         res.writeHead(error.code || 500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(error.message));
-    // }
-
 };

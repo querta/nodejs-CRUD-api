@@ -4,9 +4,8 @@ import {
 } from 'uuid';
 
 const idValidate = (uuid: string): boolean => {
-  return uuidValidate(uuid) && uuidVersion(uuid) === 4; 
+  const ret = uuidValidate(uuid) && uuidVersion(uuid) === 4;
+  return ret;
 };
-
-// export const compressCmd = async (user) => {
 
 export default idValidate;

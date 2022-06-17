@@ -1,5 +1,5 @@
 import http from 'http';
-import { users } from './index';
+import users from './index';
 import idValidate from './uidvalidate';
 import * as err from './errors';
 

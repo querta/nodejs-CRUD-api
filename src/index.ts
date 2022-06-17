@@ -10,7 +10,7 @@ import * as err from './errors';
 // const routing = {
 
 // }
-export const users = userDB;
+const users = userDB;
 users.createUser({ name: 'Oleg', age: 12 });
 users.createUser({ name: 'Vagan', age: 33, hobbies: ['read, swim'] });
 
@@ -37,3 +37,5 @@ const server = http.createServer(async (req, res) => {
 });
 const PORT = process.env.SERVER_PORT || 4000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+export default users;

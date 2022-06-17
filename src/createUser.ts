@@ -1,9 +1,10 @@
 import http from 'http';
 import * as err from './errors';
-import { users } from './index';
+import users from './index';
 import { ICandidate } from './interfaces';
 
 const getRequestData = (req: http.IncomingMessage): Promise<ICandidate> =>
+    // eslint-disable-next-line implicit-arrow-linebreak
     new Promise((resolve, reject) => {
         try {
             let body = '';

@@ -2,9 +2,13 @@ import http from 'http';
 import { users } from './index';
 import idValidate from './uidvalidate';
 import * as err from './errors';
-import giveResponse from './response';
 
-const processGet = async (req: http.IncomingMessage, res: http.ServerResponse) => {
+const giveResponse = async (res: http.ServerResponse, data: any) => {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(data));
+};
+
+const getUser = async (req: http.IncomingMessage, res: http.ServerResponse) => {
     if (req.url === '/api/users') {
        giveResponse(res, users);
     } else if (req.url!.match(/\/api\/users\/\w+/)) {
@@ -17,4 +21,4 @@ const processGet = async (req: http.IncomingMessage, res: http.ServerResponse) =
     } else { err.route(); }
 };
 
-export default processGet;
+export default getUser;

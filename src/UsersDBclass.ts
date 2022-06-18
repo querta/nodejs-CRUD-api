@@ -35,11 +35,12 @@ class UsersDB {
         }
     }
 
-    async updateUser(id: string, { name, age, hobbies }: ICandidate): Promise<void> {
+    async updateUser(id: string, { name, age, hobbies }: ICandidate): Promise<IUser> {
         const user: IUser = await this.getUserById(id);
-        user.name = name;
-        user.age = age;
+        if (name) { user.name = name; }
+        if (age) { user.age = age; }
         if (hobbies) { user.hobbies = hobbies; }
+        return user;
     }
 }
 

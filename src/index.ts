@@ -1,15 +1,12 @@
 import http from 'http';
 import 'dotenv/config';
-// import { ICandidate, IUser } from './interfaces';
 import userDB from './UsersDBclass';
 import getUser from './getUser';
 import createUser from './createUser';
+import updateUser from './updateUser';
 import * as err from './errors';
-// import User from './types';
+import deleteUser from './deleteUser';
 
-// const routing = {
-
-// }
 const users = userDB;
 users.createUser({ name: 'Oleg', age: 12 });
 users.createUser({ name: 'Vagan', age: 33, hobbies: ['read, swim'] });
@@ -21,6 +18,12 @@ const reqProcess = async (req: http.IncomingMessage, res: http.ServerResponse) =
             break;
         case 'POST':
             await createUser(req, res);
+            break;
+        case 'PUT':
+            await updateUser(req, res);
+            break;
+        case 'DELETE':
+            await deleteUser(req, res);
             break;
         default:
             err.method();

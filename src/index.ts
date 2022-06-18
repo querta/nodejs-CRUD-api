@@ -8,8 +8,6 @@ import * as err from './errors';
 import deleteUser from './deleteUser';
 
 const users = userDB;
-users.createUser({ name: 'Oleg', age: 12 });
-users.createUser({ name: 'Vagan', age: 33, hobbies: ['read, swim'] });
 
 const reqProcess = async (req: http.IncomingMessage, res: http.ServerResponse) => {
     switch (req.method!) {

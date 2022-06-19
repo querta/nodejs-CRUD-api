@@ -10,7 +10,9 @@ const getRequestData = (req: http.IncomingMessage): Promise<ICandidate> =>
                 body += chunk.toString();
             });
             req.on('end', () => {
-                resolve(JSON.parse(body));
+                try {
+                    resolve(JSON.parse(body));
+                } catch (error) { reject(error); }
             });
         } catch (error) {
             reject(error);

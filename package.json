@@ -1,0 +1,39 @@
+{
+  "name": "nodejs-crud-api",
+  "version": "1.0.0",
+  "description": "## Technical requirements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/index.js",
+    "start:dev": "nodemon",
+    "start:prod": "tsc && node ./dist/index.js",
+    "2start:prod": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/querta/nodejs-CRUD-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/querta/nodejs-CRUD-api/issues"
+  },
+  "homepage": "https://github.com/querta/nodejs-CRUD-api#readme",
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.8.1"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.42",
+    "dotenv": "^16.0.1",
+    "uuid": "^8.3.2"
+  }
+}

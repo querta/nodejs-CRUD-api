@@ -1,5 +1,18 @@
 # Node-js CRUD API No framework
 
+### How to use:
+1. Clone repository:
+> git clone git@github.com:querta/nodejs-CRUD-api.git && cd nodejs-CRUD-api
+2. Install dependencies 
+> npm install
+3. To start in regular mode:
+> npm run start:prod
+3.1 To start in dev mode (using nodemon):
+> npm run start:dev
+4. Open postman.
+Default endpoint is http://localhost:4000/api/users but you can change port in .env
+
+
 ## Technical requirements
 
 - Task can be implemented on Javascript or Typescript
